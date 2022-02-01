@@ -14,14 +14,15 @@ super + d
 # make sxhkd reload its configuration files:
 super + Escape
     pkill -USR1 -x sxhkd
+ 
+#
+# bspwm hotkeys
+#
+
 # Open Firefox
 super + shift + f
     firejail /opt/firefox/firefox
 
-#
-# bspwm hotkeys
-#
- 
 # quit/restart bspwm
 super + alt + {q,r}
     bspc {quit,wm -r}
@@ -87,7 +88,10 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
     bspc {desktop -f,node -d} '^{1-9,10}'
- 
+
+# Slimlock
+super + shift + x
+    slimlock
 #
 # preselect
 #
@@ -127,7 +131,7 @@ super + ctrl + {Left,Down,Up,Right}
  
 # Custom move/resize
 alt + super + {Left,Down,Up,Right}
-    /home/kaide/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+    /home/ed1ak/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 # ------------------------------------------------------------------------------------------------
  
 5. Creamos el archivo bspwm_resize:
@@ -139,19 +143,3 @@ Mediante la siguiente configuración podremos en el futuro controlar las dimensi
 modificarlas con atajos de teclado:
 # ------------------------------------------------------------------------------------------------
 #!/usr/bin/env dash
- 
-if bspc query -N -n focused.floating > /dev/null; then
-    step=20
-else
-    step=100
-fi
- 
-case "$1" in
-    west) dir=right; falldir=left; x="-$step"; y=0;;
-    east) dir=right; falldir=left; x="$step"; y=0;;
-    north) dir=top; falldir=bottom; x=0; y="-$step";;
-    south) dir=top; falldir=bottom; x=0; y="$step";;
-esac
- 
-bspc node -z "$dir" "$x" "$y" || bspc node -z "$falldir" "$x" "$y"
-# -------------------------------------------------------------------------------------------------
