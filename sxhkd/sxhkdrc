@@ -5,7 +5,7 @@
  
 # terminal emulator
 super + Return
-    kitty
+    gnome-terminal
  
 # program launcher
 super + d
@@ -133,13 +133,3 @@ super + ctrl + {Left,Down,Up,Right}
 alt + super + {Left,Down,Up,Right}
     /home/ed1ak/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 # ------------------------------------------------------------------------------------------------
- 
-5. Creamos el archivo bspwm_resize:
- 
-mkdir ~/.config/bspwm/scripts/
-touch ~/.config/bspwm/scripts/bspwm_resize; chmod +x ~/.config/bspwm/scripts/bspwm_resize
- 
-Mediante la siguiente configuración podremos en el futuro controlar las dimensiones de las vetanas, así como
-modificarlas con atajos de teclado:
-# ------------------------------------------------------------------------------------------------
-#!/usr/bin/env dash

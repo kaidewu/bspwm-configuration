@@ -10,14 +10,15 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 ## Launch
 
-## Center bar
+## Left bar
 polybar log -c ~/.config/polybar/current.ini &
 polybar secondary -c ~/.config/polybar/current.ini &
-polybar terciary -c ~/.config/polybar/current.ini &
+polybar browser -c ~/.config/polybar/current.ini &
 
 ## Right bar
 #polybar top -c ~/.config/polybar/current.ini &
 polybar primary -c ~/.config/polybar/current.ini &
+polybar terciary -c ~/.config/polybar/current.ini &
 
-## Left bar
+## Center bar
 polybar primary -c ~/.config/polybar/workspace.ini &

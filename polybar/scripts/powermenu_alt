@@ -24,7 +24,7 @@ case $chosen in
         systemctl reboot
         ;;
     $lock)
-        slimlock
+        i3lock
         ;;
     $suspend)
         mpc -q pause
